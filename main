@@ -1,0 +1,67 @@
+from urllib import response
+import discord
+import random
+
+TOKEN = 'MTAyNTQ2NzQ1NTg2MDEyMTY3MA.G9N1VS.Or3Jrr-TalVbDrBvkFkB4D0ZWgzhyExLFrj0Cc'
+
+client = discord.Client()
+
+@client.event
+async def on_ready():
+    print("we have logged in as {0.user}" .format(client))
+
+
+@client.event
+async def on_message(message):
+    username = str(message.author).split('#')[0]
+    user_message = str(message.content)
+    channel = str(message.channel.name)
+    print(f'{username}: {user_message} ({channel})')
+
+
+    if message.author == client.user:
+        return
+
+    if message.channel.name == 'test':
+        if user_message.lower() == 'hello':
+            await message.channel.send(f'Hello {username}!')
+            return
+        elif user_message.lower() == 'hi':
+            await message.channel.send(f'hi {username}!')
+            return
+        elif user_message.lower() == 'how are you?':
+            await message.channel.send(f'fine sir {username}!')
+            return
+        elif user_message.lower() == 'who is your developer':
+            await message.channel.send(f'its Gamer_gta {username}!')
+            return
+        elif user_message.lower() == 'can we go on a date':
+            await message.channel.send(f'sure {username}!')
+            return
+        elif user_message.lower() == 'who does your developer like':
+            await message.channel.send('a girl in school')
+            return
+        elif user_message.lower() == 'who is she':
+            await message.channel.send('name starts with s')
+            return
+        elif user_message.lower() == 'bye':
+            await message.channel.send(f'Bye {username}!')
+            return
+        elif user_message.lower() == 'see ya':
+            await message.channel.send(f'ohk {username}!')
+            return
+        elif user_message.lower() == 'random':
+            response = f'Your random number is {random.randint(1, 1000000)}'
+            await message.channel.send(response)
+            return
+
+
+    if user_message.lower() == '!hi':
+        await message.channel.send('hi')
+        return
+    elif user_message.lower() == '!help':
+        await message.channel.send('this bot is programmed by Gamer_gta you can use these commands: hello, hi, how are you?, who is your developer, bye, see ya, random for now')
+        return
+    
+
+client.run(TOKEN)
