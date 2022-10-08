@@ -2,7 +2,7 @@ from urllib import response
 import discord
 import random
 
-TOKEN = 'MTAyNTQ2NzQ1NTg2MDEyMTY3MA.G9N1VS.Or3Jrr-TalVbDrBvkFkB4D0ZWgzhyExLFrj0Cc'
+TOKEN = ''
 
 client = discord.Client()
 
